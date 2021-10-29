@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Do something",
+    "is_checked": "False"
+  },
+  {
+    "title": "Do something else",
+    "is_checked": "False"
+  },
+  {
+    "title": "Already done",
+    "is_checked": "True"
+  },
+]
