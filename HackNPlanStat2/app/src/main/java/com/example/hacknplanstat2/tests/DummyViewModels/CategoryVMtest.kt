@@ -1,4 +1,4 @@
-package com.example.hacknplanstat2.viewModel.test
+package com.example.hacknplanstat2.tests.DummyViewModels
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf

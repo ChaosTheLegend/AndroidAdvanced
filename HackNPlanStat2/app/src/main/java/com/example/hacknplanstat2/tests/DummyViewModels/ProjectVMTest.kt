@@ -1,4 +1,4 @@
-package com.example.hacknplanstat2.viewModel.test
+package com.example.hacknplanstat2.tests.DummyViewModels
 
 import com.example.hacknplanstat2.model.Project
 import com.example.hacknplanstat2.util.Event

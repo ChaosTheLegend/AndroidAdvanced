@@ -1,11 +1,9 @@
 package com.example.hacknplanstat2.composable
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -21,8 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.hacknplanstat2.model.Project
 import com.example.hacknplanstat2.ui.theme.*
 import com.example.hacknplanstat2.viewModel.ProjectsViewModel
-import com.example.hacknplanstat2.viewModel.test.ProjectVMTest
-import kotlin.math.round
+import com.example.hacknplanstat2.tests.DummyViewModels.ProjectVMTest
 
 class ProjectsView(private var viewModel: ProjectsViewModel) : ComposableView {
 

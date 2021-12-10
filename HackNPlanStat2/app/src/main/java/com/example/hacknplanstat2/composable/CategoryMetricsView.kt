@@ -22,7 +22,7 @@ import com.example.hacknplanstat2.model.TaskSize
 import com.example.hacknplanstat2.ui.theme.h3
 import com.example.hacknplanstat2.ui.theme.h4
 import com.example.hacknplanstat2.viewModel.CategoryMetricsViewModel
-import com.example.hacknplanstat2.viewModel.test.CategoryVMtest
+import com.example.hacknplanstat2.tests.DummyViewModels.CategoryVMtest
 
 class CategoryMetricsView(var viewModel : CategoryMetricsViewModel) : ComposableView {
 

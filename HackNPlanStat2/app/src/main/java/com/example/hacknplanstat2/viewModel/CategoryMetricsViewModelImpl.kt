@@ -67,7 +67,6 @@ class CategoryMetricsViewModelImpl : ViewModel(), CategoryMetricsViewModel, Koin
         return map.mapValues { it.value.map { task ->  task.loggedCost }.average().toFloat() }
     }
 
-
     override fun getCount(category : Category, taskSize: TaskSize) : Int{
         return countMap[category]?.get(taskSize)!!
     }
