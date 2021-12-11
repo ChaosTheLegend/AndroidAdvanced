@@ -1,7 +1,9 @@
 package com.example.hacknplanstat2.tests.DummyViewModels
 
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.Color
-import com.example.hacknplanstat2.composable.ProjectMainViewModel
+import com.example.hacknplanstat2.viewModel.ProjectMainViewModel
 import com.example.hacknplanstat2.model.Category
 import com.example.hacknplanstat2.model.Project
 import com.example.hacknplanstat2.model.Sprint
@@ -47,6 +49,12 @@ class ProjectMainViewModelTestImpl : ProjectMainViewModel {
     override fun getCategoryProgress(category: Category): Float {
         return 0.6f
     }
+
+    override fun load() {
+        TODO("Not yet implemented")
+    }
+
+    override var isLoaded: MutableState<Boolean> = mutableStateOf(false)
 
 
 }

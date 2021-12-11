@@ -22,6 +22,7 @@ class OnlineRepository : Repository, KoinComponent {
 
     override lateinit var user : User
     override lateinit var project : Project
+    override lateinit var sprint: Sprint
 
 
     override suspend fun checkApiKey(apiKey: String): Boolean {
@@ -55,6 +56,57 @@ class OnlineRepository : Repository, KoinComponent {
             }
 
         return rawCategories.map { rawCategory -> rawCategory.toCategory() }
+    }
+
+    override suspend fun getDefaultSprint(): Sprint {
+        val rawBoards : List<Sprint> = client.get("${sourceUrl}/v0/projects/${project.id}/boards") {
+            method = HttpMethod.Get
+            headers {
+                append(HttpHeaders.Authorization, "ApiKey $apiKey")
+            }
+        }
+
+        lateinit var default : Sprint;
+        for (board in rawBoards){
+            if(board.isDefault) default = board;
+            break;
+        }
+
+        sprint = default;
+
+        return default;
+    }
+
+    override suspend fun getSprintMetrics(): List<SprintMetrics> {
+        val metrics: MetricWrapper =
+            client.get("${sourceUrl}/v0/projects/${project.id}/boards/${sprint.boardId}/metrics") {
+                method = HttpMethod.Get
+                headers {
+                    append(HttpHeaders.Authorization, "ApiKey $apiKey")
+                }
+            }
+
+        return metrics.categories;
+    }
+
+    override suspend fun getSprintMetrics(category: Category): SprintMetrics {
+        val metrics: List<SprintMetrics> =
+            client.get("${sourceUrl}/v0/projects/${project.id}/boards/${sprint.boardId}/metrics") {
+                method = HttpMethod.Get
+                headers {
+                    append(HttpHeaders.Authorization, "ApiKey $apiKey")
+                }
+            }
+
+        lateinit var output : SprintMetrics
+        for (metric in metrics) {
+            if(metric.category.categoryId == category.categoryId) {
+                output = metric
+                break;
+            }
+        }
+
+        return output;
     }
 
     override suspend fun getWorkItemsByCategory(category: Category): Map<TaskSize, List<Task>>{

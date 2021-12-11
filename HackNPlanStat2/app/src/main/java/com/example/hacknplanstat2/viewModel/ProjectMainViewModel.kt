@@ -1,5 +1,6 @@
-package com.example.hacknplanstat2.composable
+package com.example.hacknplanstat2.viewModel
 
+import androidx.compose.runtime.MutableState
 import com.example.hacknplanstat2.model.Category
 import com.example.hacknplanstat2.model.Project
 import com.example.hacknplanstat2.model.Sprint
@@ -13,7 +14,8 @@ interface ProjectMainViewModel {
     abstract fun getTotalTaskCount(): Int
     abstract fun getCompletedHoursCount(): Float
     abstract fun getTotalHourCount(): Float
-    abstract fun getCategories(): MutableList<Category>
+    abstract fun getCategories(): List<Category>
     abstract fun getCategoryProgress(category: Category): Float
-
+    fun load()
+    var isLoaded: MutableState<Boolean>
 }

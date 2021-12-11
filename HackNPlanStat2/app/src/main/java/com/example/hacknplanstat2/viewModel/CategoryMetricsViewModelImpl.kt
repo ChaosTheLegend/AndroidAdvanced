@@ -78,7 +78,6 @@ class CategoryMetricsViewModelImpl : ViewModel(), CategoryMetricsViewModel, Koin
     override var categories: List<Category> = listOf()
     override val onCategoriesLoaded : Event<Boolean> = Event()
 
-
     override val projectName: String = ""
 
 }

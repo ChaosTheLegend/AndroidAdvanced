@@ -11,7 +11,11 @@ interface Repository {
 
 
     var project: Project
+    var sprint : Sprint;
     suspend fun openProject(projectId: Int)
     suspend fun getCategories() : List<Category>
+    suspend fun getDefaultSprint() : Sprint
     suspend fun getWorkItemsByCategory(category: Category): Map<TaskSize, List<Task>>
+    suspend fun getSprintMetrics(): List<SprintMetrics>
+    suspend fun getSprintMetrics(category: Category): SprintMetrics
 }

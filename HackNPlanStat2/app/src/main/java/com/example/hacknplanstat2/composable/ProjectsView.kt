@@ -36,7 +36,7 @@ class ProjectsView(private var viewModel: ProjectsViewModel) : ComposableView {
 
         viewModel.onProjectsOpened += {
             isLoading.value = false
-            navController.navigate("categoryMetrics")
+            navController.navigate("projectMain")
         }
 
         viewModel.loadProjects()
